@@ -1,23 +1,31 @@
-# LoftSims SAP ZDR Assessor
+# LoftSims General ZDR Readiness
 
-A simple browser-based interface for assessing Zero Data Retention across custom SAP AI Technology data flows.
+LoftSims evaluates Zero Data Retention for any AI Technology product through a two-state workflow:
+
+1. **As-is system state → Assessment JSON**
+2. **Assessment JSON + future-state inputs → Recommendation document**
 
 ## Run
 
-Open `index.html` in a modern browser. No server, installation, account or external dependency is required.
+Open `index.html` in a modern browser. The application has no server or external dependency and stores work locally in the browser.
 
 ## Capabilities
 
-- Load an existing YAML assessment
-- Answer all 15 SAP ZDR control questions
-- Define the SAP-to-model processor chain
-- Record evidence references
-- Identify unresolved items and retention risks
-- Export the completed assessment as YAML
-- Keep assessment state locally in the browser
+- Loads or edits current-state JSON
+- Evaluates storage, logs, model-provider retention, training use, deletion, backups and human access
+- Produces machine-readable assessment JSON
+- Accepts proposals and requirements from model operators, product operators, clients and customers
+- Maps future controls to current findings
+- Produces a Markdown recommendation document
+- Exports the complete project
+- Keeps observed, contracted, asserted and proposed information separate
 
-The tool evaluates ZDR per data flow and never treats “no model training” as equivalent to Zero Data Retention.
+Example inputs are provided as `current-state.example.json` and `future-state.example.json`.
+
+## Determination rule
+
+LoftSims evaluates each named data flow independently. “No model training” is not treated as Zero Data Retention, and future-state claims do not change an as-is determination until implementation and evidence are verified.
 
 ## Governance
 
-`#HumansOnTop` — human approval remains the final authority for consequential SAP write-back.
+`#HumansOnTop` — the human remains the originator, decision-maker and final authority.
