@@ -9,7 +9,7 @@ Every released milestone is preserved in its own subfolder:
 | v0.1.0 | SAP-specific ZDR assessment | [`versions/v0.1.0/`](versions/v0.1.0/) |
 | v0.2.0 | General two-state ZDR assessment and recommendation engine | [`versions/v0.2.0/`](versions/v0.2.0/) |
 | v0.3.0 | YAML Flavor Checker and canonical ingestion gateway | [`versions/v0.3.0/`](versions/v0.3.0/) |
-| v0.4.0 | Complete freestanding release with every ZDR capability | [`versions/v0.4.0/`](versions/v0.4.0/) |
+| v0.4.0 | Complete freestanding release: flavor YAML builder → checker → assessment → missing controls → recommendation | [`versions/v0.4.0/`](versions/v0.4.0/) |
 
 The files at the repository root represent v0.3.0. The complete cumulative testing target is **v0.4.0** in its version folder.
 
