@@ -1,0 +1,16 @@
+{
+  "schema": "loftsims.zdr.current-state/v1",
+  "product": {"name": "Example AI Technology Product", "version": "1.0", "deployment_model": "cloud_saas", "environment": "production"},
+  "data_flows": [{
+    "flow_id": "document-analysis",
+    "purpose": "Analyze customer documents",
+    "inputs": ["prompt", "uploaded_document", "customer_metadata"],
+    "processor_chain": [{"component": "product_application", "operator": "product_vendor"}, {"component": "rag_orchestrator", "operator": "product_vendor"}, {"component": "foundation_model", "operator": "model_provider"}],
+    "storage": [{"system": "application_database", "content_retention": "30_days"}, {"system": "vector_database", "content_retention": "indefinite"}],
+    "logging": {"prompt_logged": true, "response_logged": true, "metadata_logged": true},
+    "model_provider": {"name": "Provider A", "model": "Model X", "training_use": false, "content_retention": "7_days"},
+    "human_access": {"support_access": true, "abuse_review": true},
+    "deletion": {"backups": "90_days", "subprocessor_propagation": "unknown"}
+  }],
+  "evidence": [{"evidence_id": "E001", "type": "contract", "reference": "DPA Section 8.2", "truth_class": "contracted", "status": "verified"}]
+}
