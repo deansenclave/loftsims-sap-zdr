@@ -1,5 +1,17 @@
 # LoftSims General ZDR Readiness
 
+## Version folders
+
+Every released milestone is preserved in its own subfolder:
+
+| Version | Scope | Folder |
+| --- | --- | --- |
+| v0.1.0 | SAP-specific ZDR assessment | [`versions/v0.1.0/`](versions/v0.1.0/) |
+| v0.2.0 | General two-state ZDR assessment and recommendation engine | [`versions/v0.2.0/`](versions/v0.2.0/) |
+| v0.3.0 | YAML Flavor Checker and canonical ingestion gateway | [`versions/v0.3.0/`](versions/v0.3.0/) |
+
+The files at the repository root represent the latest release, currently **v0.3.0**.
+
 LoftSims evaluates Zero Data Retention for any AI Technology product through a two-state workflow:
 
 1. **Flavor-specific YAML → Flavor Checker**
@@ -10,6 +22,8 @@ LoftSims evaluates Zero Data Retention for any AI Technology product through a t
 ## Run
 
 Open `index.html` in a modern browser. The application has no server or external dependency and stores work locally in the browser.
+
+To run a specific historical version, open its `index.html` file inside the corresponding version folder.
 
 ## Capabilities
 
