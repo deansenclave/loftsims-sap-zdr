@@ -10,8 +10,9 @@ Every released milestone is preserved in its own subfolder:
 | v0.2.0 | General two-state ZDR assessment and recommendation engine | [`versions/v0.2.0/`](versions/v0.2.0/) |
 | v0.3.0 | YAML Flavor Checker and canonical ingestion gateway | [`versions/v0.3.0/`](versions/v0.3.0/) |
 | v0.4.0 | Complete freestanding release: flavor YAML builder → checker → assessment → missing controls → recommendation | [`versions/v0.4.0/`](versions/v0.4.0/) |
+| v0.5.0 | Validated YAML handoff, 15-control normalization, and bidirectional workflow navigation | [`versions/v0.5.0/`](versions/v0.5.0/) |
 
-The files at the repository root represent v0.3.0. The complete cumulative testing target is **v0.4.0** in its version folder.
+The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.5.0** in its version folder.
 
 LoftSims evaluates Zero Data Retention for any AI Technology product through a two-state workflow:
 
