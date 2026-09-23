@@ -1,0 +1,50 @@
+specification:
+  id: loftsims.sap.zdr-assessment
+  version: 1.0.0
+  principle: "#HumansOnTop"
+  evaluation_unit: data_flow
+  rule: "Never label the entire SAP installation ZDR; verify each data flow independently."
+
+installation:
+  installation_id: null
+  legal_entity: null
+  deployment_model: null
+  jurisdictions: []
+
+data_flow:
+  flow_id: null
+  name: null
+  environment: production
+  source: SAP_S4HANA
+  processor_chain:
+    - SAP_BTP
+    - foundation_model
+  destination: SAP_S4HANA
+  model_provider: null
+  model: null
+  endpoint_region: null
+  writes_back_to_system_of_record: null
+  human_approval_required: true
+
+assessment_questions:
+  - {id: Q01, answer: unknown, question: "Are prompts, retrieved context, attachments, embeddings and responses retained?"}
+  - {id: Q02, answer: unknown, question: "Is customer content used for model training, evaluation, tuning or service improvement?"}
+  - {id: Q03, answer: unknown, question: "Can security or abuse monitoring retain or expose content?"}
+  - {id: Q04, answer: unknown, question: "Which exact model provider, model, version and endpoint process the data?"}
+  - {id: Q05, answer: unknown, question: "Which subprocessors can receive or access content or metadata?"}
+  - {id: Q06, answer: unknown, question: "Where is data stored, processed, backed up or remotely accessed?"}
+  - {id: Q07, answer: unknown, question: "Can content enter application, integration, audit or observability logs?"}
+  - {id: Q08, answer: unknown, question: "Are logs metadata-only, with sensitive content redacted?"}
+  - {id: Q09, answer: unknown, question: "How long do backups, replicas, caches, queues and DR copies retain deleted data?"}
+  - {id: Q10, answer: unknown, question: "Can content logging be disabled and enforced in every environment?"}
+  - {id: Q11, answer: unknown, question: "What happens to content and metadata when the service terminates?"}
+  - {id: Q12, answer: unknown, question: "Does deletion propagate to replicas, caches, logs, backups and subprocessors?"}
+  - {id: Q13, answer: unknown, question: "Is ZDR binding for this exact service plan, model, region and flow?"}
+  - {id: Q14, answer: unknown, question: "Which document prevails when SAP, provider and customer terms conflict?"}
+  - {id: Q15, answer: unknown, question: "Does the customer application persist prompts, responses, traces or feedback?"}
+
+determination:
+  statuses: [verified_zdr, limited_retention, not_zdr, not_verified]
+  unknown_treatment: not_verified
+  no_training_is_not_zdr: true
+  evidence_required: true
