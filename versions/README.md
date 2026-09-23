@@ -7,6 +7,6 @@ Each subfolder is a self-contained LoftSims milestone reconstructed from its rel
 | `v0.1.0` | `7eff93e` | SAP ZDR assessment interface |
 | `v0.2.0` | `fe1c752` | General two-state ZDR readiness engine |
 | `v0.3.0` | `6de5a5a` | YAML Flavor Checker and canonical ingestion gateway |
-| `v0.4.0` | pending | Complete freestanding ZDR release combining all prior functionality |
+| `v0.4.0` | current | Complete end-to-end release with universal flavor YAML generation, validation, assessment and recommendation |
 
 Open the `index.html` file in any version folder to run that version locally.
