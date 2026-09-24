@@ -22,6 +22,8 @@ All 38 captured sources are individually selectable in the Knowledge Match stage
 
 Selecting a known source also prepopulates editable product, flavor, installation, flow, routing, provider, and model/service fields. Generated IDs are deterministic slugs and can be revised by the human operator before YAML generation.
 
+Versioned autofill migration replaces legacy browser-saved builder remnants once for an existing selected source. Later human edits are preserved on reopen. The **Apply source to editable fields** action lets the operator deliberately regenerate the source-derived values at any time.
+
 Source publications can prepopulate relevant controls as preliminary `failed` or `not_verified` results. Explicit unavailable, retaining, or non-ZDR postures generate failures; favorable or conditional claims remain unverified until customer-specific contract, configuration, and runtime evidence is supplied. Every default records its source ID, reason, truth class, and human-confirmation requirement.
 
 Provider publications remain reference knowledge. They generate questions and evidence requests but cannot independently verify an installation.
