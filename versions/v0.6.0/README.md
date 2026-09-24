@@ -18,6 +18,8 @@ LoftSims evaluates Zero Data Retention for any AI Technology product through a t
 - [`knowledge/knowledge-corpus.json`](knowledge/knowledge-corpus.json) contains the sparse 15-anchor vectors.
 - [`knowledge/build_vectors.py`](knowledge/build_vectors.py) reproducibly builds the JSON and browser data.
 
+All 38 captured sources are individually selectable in the Knowledge Match stage. A selected source contributes its organization, product, posture, 15-anchor vector, verification requirements, questionnaire extensions, evidence requests, assessment trace, recommendation references, and project-export provenance.
+
 Provider publications remain reference knowledge. They generate questions and evidence requests but cannot independently verify an installation.
 
 ## Run
