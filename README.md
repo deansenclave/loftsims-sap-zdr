@@ -14,8 +14,9 @@ Every released milestone is preserved in its own subfolder:
 | v0.6.0 | 38-source corpus, 15-anchor vectors, system confirmation, and tailored questionnaires | [`versions/v0.6.0/`](versions/v0.6.0/) |
 | v0.6.1 | Editable source-derived identifiers, preliminary anchor defaults, stale-state migration, and source reapply | [`versions/v0.6.1/`](versions/v0.6.1/) |
 | v0.6.2 | System-type and corpus-source autofill for all essential editable identifiers | [`versions/v0.6.2/`](versions/v0.6.2/) |
+| v0.6.3 | Selected-source ZDR feature activation limitations in YAML, assessment, and recommendations | [`versions/v0.6.3/`](versions/v0.6.3/) |
 
-The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.6.2** in its version folder.
+The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.6.3** in its version folder.
 
 ## Release policy
 
