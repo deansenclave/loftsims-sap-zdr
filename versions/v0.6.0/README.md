@@ -20,6 +20,10 @@ LoftSims evaluates Zero Data Retention for any AI Technology product through a t
 
 All 38 captured sources are individually selectable in the Knowledge Match stage. A selected source contributes its organization, product, posture, 15-anchor vector, verification requirements, questionnaire extensions, evidence requests, assessment trace, recommendation references, and project-export provenance.
 
+Selecting a known source also prepopulates editable product, flavor, installation, flow, routing, provider, and model/service fields. Generated IDs are deterministic slugs and can be revised by the human operator before YAML generation.
+
+Source publications can prepopulate relevant controls as preliminary `failed` or `not_verified` results. Explicit unavailable, retaining, or non-ZDR postures generate failures; favorable or conditional claims remain unverified until customer-specific contract, configuration, and runtime evidence is supplied. Every default records its source ID, reason, truth class, and human-confirmation requirement.
+
 Provider publications remain reference knowledge. They generate questions and evidence requests but cannot independently verify an installation.
 
 ## Run
