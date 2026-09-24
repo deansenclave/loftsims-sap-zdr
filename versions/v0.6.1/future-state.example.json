@@ -1,0 +1,10 @@
+{
+  "schema": "loftsims.zdr.future-state/v1",
+  "proposal_id": "FUTURE-001",
+  "target_date": null,
+  "inputs": [
+    {"source_type": "model_operator", "source_name": "Provider A", "proposals": [{"component": "foundation_model", "change": "Enable zero-retention inference endpoint", "addresses": ["provider_content_retention"], "commitment_status": "proposed", "truth_class": "proposed"}]},
+    {"source_type": "product_operator", "source_name": "Product Vendor", "proposals": [{"component": "application_logging", "change": "Disable prompt and response logging", "addresses": ["content_logging"], "commitment_status": "planned", "truth_class": "proposed"}, {"component": "vector_database", "change": "Delete embeddings after request completion", "addresses": ["persistent_storage"], "commitment_status": "planned", "truth_class": "proposed"}]},
+    {"source_type": "client", "source_name": "Enterprise Customer", "requirements": [{"requirement": "No customer-content retention", "control_id": "no_content_retention", "priority": "mandatory"}, {"requirement": "Human approval before consequential action", "control_id": "human_approval", "priority": "mandatory"}]}
+  ]
+}
