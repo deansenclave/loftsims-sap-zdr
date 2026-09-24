@@ -11,8 +11,9 @@ Every released milestone is preserved in its own subfolder:
 | v0.3.0 | YAML Flavor Checker and canonical ingestion gateway | [`versions/v0.3.0/`](versions/v0.3.0/) |
 | v0.4.0 | Complete freestanding release: flavor YAML builder → checker → assessment → missing controls → recommendation | [`versions/v0.4.0/`](versions/v0.4.0/) |
 | v0.5.0 | Validated YAML handoff, 15-control normalization, and bidirectional workflow navigation | [`versions/v0.5.0/`](versions/v0.5.0/) |
+| v0.6.0 | 38-source corpus, 15-anchor vectors, system confirmation, and tailored questionnaires | [`versions/v0.6.0/`](versions/v0.6.0/) |
 
-The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.5.0** in its version folder.
+The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.6.0** in its version folder.
 
 LoftSims evaluates Zero Data Retention for any AI Technology product through a two-state workflow:
 
@@ -44,6 +45,10 @@ To run a specific historical version, open its `index.html` file inside the corr
 - Keeps observed, contracted, asserted and proposed information separate
 
 Example inputs are provided as `current-state.example.json` and `future-state.example.json`.
+
+## Research corpus
+
+The [`research/zdr-market-corpus/`](research/zdr-market-corpus/) folder catalogs provider ZDR documentation, enterprise-product behavior, commercial governance products, standards, regulation, and independent research. Its YAML manifest is designed for future LoftSims evidence ingestion.
 
 ## Determination rule
 
