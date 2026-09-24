@@ -12,8 +12,13 @@ Every released milestone is preserved in its own subfolder:
 | v0.4.0 | Complete freestanding release: flavor YAML builder → checker → assessment → missing controls → recommendation | [`versions/v0.4.0/`](versions/v0.4.0/) |
 | v0.5.0 | Validated YAML handoff, 15-control normalization, and bidirectional workflow navigation | [`versions/v0.5.0/`](versions/v0.5.0/) |
 | v0.6.0 | 38-source corpus, 15-anchor vectors, system confirmation, and tailored questionnaires | [`versions/v0.6.0/`](versions/v0.6.0/) |
+| v0.6.1 | Editable source-derived identifiers, preliminary anchor defaults, stale-state migration, and source reapply | [`versions/v0.6.1/`](versions/v0.6.1/) |
 
-The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.6.0** in its version folder.
+The files at the repository root represent v0.3.0. The current cumulative testing target is **v0.6.1** in its version folder.
+
+## Release policy
+
+Published version folders are immutable snapshots. Enhancements use a new patch folder such as `v0.6.1`, `v0.6.2`, or `v0.6.11`. After testing, a selected patch can be declared the stable release for its main version line.
 
 LoftSims evaluates Zero Data Retention for any AI Technology product through a two-state workflow:
 
