@@ -11,7 +11,7 @@ const profiles={
   governance:{label:'AI governance/control platform',anchors:['A04','A05','A06','A07','A08','A09','A10','A11','A12','A14','A15'],extra:['Does the governance platform copy inspected prompts or responses into its own logs?','What retention applies to evidence, monitoring and incident records?']}
 };
 
-let knowledgeState={profile:'generic',confirmed:false,system_type:'',provider:'',product:'',features:[],matched_source_ids:[],questionnaire:[],generated_at:null};
+let knowledgeState={profile:'generic',confirmed:false,system_type:'',provider:'',product:'',features:[],selected_source_id:'',matched_source_ids:[],questionnaire:[],generated_at:null};
 const navHost=document.querySelector('.side nav');
 const flavorNav=[...navHost.querySelectorAll('.nav')].find(x=>x.dataset.view==='flavor');
 const knowledgeNav=document.createElement('button');
@@ -24,6 +24,7 @@ const view=document.createElement('div');view.className='view';view.id='knowledg
 view.innerHTML=`<div class="head"><div><span class="eyebrow">KNOWLEDGE GATE</span><h2>Source system and ZDR knowledge match</h2><p>Confirm the system class before LoftSims composes the source-aware questionnaire.</p></div><button class="btn" id="downloadKnowledge">Download knowledge artifacts</button></div>
 <div class="grid"><article class="card"><h3>Preliminary classification</h3>
 <label class="field">System profile<select id="knowledgeProfile">${Object.entries(profiles).map(([id,p])=>`<option value="${id}">${p.label}</option>`).join('')}</select></label>
+<label class="field">Known ZDR source or product<select id="knowledgePreset"><option value="">Select from all ${kb.sources.length} captured sources</option>${kb.sources.map(s=>`<option value="${esc(s.id)}">${esc(s.organization)} — ${esc(s.product)} — ${esc(s.id)}</option>`).join('')}</select></label>
 <label class="field">Source system / consuming product<input id="knowledgeSystem" placeholder="SAP Joule, Salesforce Agentforce, Microsoft Copilot, custom application…"></label>
 <label class="field">Model or platform provider<input id="knowledgeProvider" placeholder="OpenAI, Anthropic, Google Cloud, AWS, Microsoft…"></label>
 <label class="field">Exact product, service or feature<input id="knowledgeProduct" placeholder="Responses API, Bedrock, Einstein Trust Layer…"></label>
@@ -38,6 +39,7 @@ document.getElementById('flavor').after(view);
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function matchingSources(state){
+  if(state.selected_source_id){const chosen=kb.sources.find(s=>s.id===state.selected_source_id);if(chosen){const related=kb.sources.filter(s=>s.organization===chosen.organization||s.product===chosen.product);return [...new Map([chosen,...related].map(s=>[s.id,s])).values()]}}
   const needles=[state.system_type,state.provider,state.product,...state.features].map(x=>String(x).trim().toLowerCase()).filter(x=>x.length>2);
   if(!needles.length)return [];
   return kb.sources.filter(s=>{const h=[s.organization,s.product,s.title,s.claim_scope,s.assessment_impact].join(' ').toLowerCase();return needles.some(n=>h.includes(n)||n.includes(String(s.organization).toLowerCase()))});
@@ -51,7 +53,8 @@ function buildQuestionnaire(state,matches){
 }
 function renderSources(){
   const selected=new Set(knowledgeState.matched_source_ids);
-  document.getElementById('knowledgeSources').innerHTML=kb.sources.map(s=>`<div style="padding:10px;border:1px solid var(--line);border-radius:8px;${selected.has(s.id)?'background:rgba(61,217,194,.09)':''}"><b>${esc(s.id)}</b> · ${esc(s.organization)} — ${esc(s.title)}<br><small>${esc(s.category)} · ${esc(s.zdr_posture)}</small> <a href="${esc(s.url)}" target="_blank" rel="noreferrer">source</a></div>`).join('');
+  document.getElementById('knowledgeSources').innerHTML=kb.sources.map(s=>`<label style="display:block;padding:10px;border:1px solid var(--line);border-radius:8px;${selected.has(s.id)?'background:rgba(61,217,194,.09)':''}"><input type="checkbox" data-knowledge-source="${esc(s.id)}" ${selected.has(s.id)?'checked':''}> <b>${esc(s.id)}</b> · ${esc(s.organization)} — ${esc(s.title)}<br><small>${esc(s.category)} · ${esc(s.zdr_posture)}</small> <a href="${esc(s.url)}" target="_blank" rel="noreferrer">source</a></label>`).join('');
+  document.querySelectorAll('[data-knowledge-source]').forEach(box=>box.onchange=()=>{const ids=new Set(knowledgeState.matched_source_ids);box.checked?ids.add(box.dataset.knowledgeSource):ids.delete(box.dataset.knowledgeSource);knowledgeState.matched_source_ids=[...ids];const selectedSources=kb.sources.filter(s=>ids.has(s.id));knowledgeState.questionnaire=buildQuestionnaire(knowledgeState,selectedSources);localStorage.setItem('loftsims-zdr-knowledge-v06',JSON.stringify(knowledgeState));renderKnowledge()});
 }
 function renderKnowledge(){
   document.getElementById('knowledgeResult').textContent=JSON.stringify({schema:'loftsims.zdr.knowledge-selection/v1',...knowledgeState,source_count:knowledgeState.matched_source_ids.length,question_count:knowledgeState.questionnaire.length},null,2);
@@ -59,15 +62,16 @@ function renderKnowledge(){
   renderSources();
 }
 function match(){
-  knowledgeState={profile:document.getElementById('knowledgeProfile').value,confirmed:document.getElementById('knowledgeConfirmed').checked,system_type:document.getElementById('knowledgeSystem').value.trim(),provider:document.getElementById('knowledgeProvider').value.trim(),product:document.getElementById('knowledgeProduct').value.trim(),features:document.getElementById('knowledgeFeatures').value.split(',').map(x=>x.trim()).filter(Boolean),matched_source_ids:[],questionnaire:[],generated_at:new Date().toISOString()};
+  knowledgeState={profile:document.getElementById('knowledgeProfile').value,confirmed:document.getElementById('knowledgeConfirmed').checked,system_type:document.getElementById('knowledgeSystem').value.trim(),provider:document.getElementById('knowledgeProvider').value.trim(),product:document.getElementById('knowledgeProduct').value.trim(),features:document.getElementById('knowledgeFeatures').value.split(',').map(x=>x.trim()).filter(Boolean),selected_source_id:document.getElementById('knowledgePreset').value,matched_source_ids:[],questionnaire:[],generated_at:new Date().toISOString()};
   if(!knowledgeState.confirmed){alert('Human confirmation is required before applying a tailored questionnaire.');renderKnowledge();return}
   const matches=matchingSources(knowledgeState);knowledgeState.matched_source_ids=matches.map(x=>x.id);knowledgeState.questionnaire=buildQuestionnaire(knowledgeState,matches);localStorage.setItem('loftsims-zdr-knowledge-v06',JSON.stringify(knowledgeState));renderKnowledge();
 }
-function clearKnowledge(){knowledgeState={profile:'generic',confirmed:false,system_type:'',provider:'',product:'',features:[],matched_source_ids:[],questionnaire:[],generated_at:null};localStorage.removeItem('loftsims-zdr-knowledge-v06');['knowledgeSystem','knowledgeProvider','knowledgeProduct','knowledgeFeatures'].forEach(id=>document.getElementById(id).value='');document.getElementById('knowledgeProfile').value='generic';document.getElementById('knowledgeConfirmed').checked=false;renderKnowledge()}
+function clearKnowledge(){knowledgeState={profile:'generic',confirmed:false,system_type:'',provider:'',product:'',features:[],selected_source_id:'',matched_source_ids:[],questionnaire:[],generated_at:null};localStorage.removeItem('loftsims-zdr-knowledge-v06');['knowledgeSystem','knowledgeProvider','knowledgeProduct','knowledgeFeatures','knowledgePreset'].forEach(id=>document.getElementById(id).value='');document.getElementById('knowledgeProfile').value='generic';document.getElementById('knowledgeConfirmed').checked=false;renderKnowledge()}
 function artifacts(){const matched=kb.sources.filter(s=>knowledgeState.matched_source_ids.includes(s.id));return{schema:'loftsims.zdr.knowledge-artifacts/v1',knowledge_snapshot:{release:kb.release,date:kb.snapshot_date},classification:knowledgeState,source_applicability:matched.map(s=>({source_id:s.id,organization:s.organization,product:s.product,zdr_posture:s.zdr_posture,anchor_vector:s.anchor_vector,verification:s.verification,url:s.url})),questionnaire:knowledgeState.questionnaire,evidence_request_manifest:knowledgeState.questionnaire.map(q=>({question_id:q.question_id,anchor_id:q.anchor_id,required_evidence:q.source_id?'contract, configuration, and runtime evidence':'installation-specific evidence',source_id:q.source_id||null}))}}
 
 knowledgeNav.onclick=()=>nav('knowledge');
 document.getElementById('matchKnowledge').onclick=match;
+document.getElementById('knowledgePreset').onchange=e=>{const s=kb.sources.find(x=>x.id===e.target.value);if(!s)return;document.getElementById('knowledgeProvider').value=s.organization;document.getElementById('knowledgeProduct').value=s.product;document.getElementById('knowledgeSystem').value=s.product;document.getElementById('knowledgeProfile').value=s.category==='model_api_provider'?'model_api':s.category==='enterprise_ai_product'?'enterprise_app':s.category==='assessment_and_governance'?'governance':'generic'};
 document.getElementById('clearKnowledge').onclick=clearKnowledge;
 document.getElementById('knowledgeClearBottom').onclick=clearKnowledge;
 document.getElementById('knowledgeBack').onclick=()=>nav('flavor');
@@ -83,6 +87,8 @@ const baseProject=completeProject;completeProject=function(){return{...baseProje
 document.getElementById('exportProject').onclick=()=>download('loftsims-zdr-complete-v0.6.0.json',JSON.stringify(completeProject(),null,2),'application/json');
 document.getElementById('reset').onclick=()=>{if(confirm('Clear the local project?')){localStorage.removeItem('loftsims-complete-zdr-v06');localStorage.removeItem('loftsims-zdr-knowledge-v06');location.reload()}};
 workflowStages.splice(3,0,['knowledge','Knowledge match']);
-try{const stored=JSON.parse(localStorage.getItem('loftsims-zdr-knowledge-v06'));if(stored){knowledgeState=stored;document.getElementById('knowledgeProfile').value=stored.profile||'generic';document.getElementById('knowledgeSystem').value=stored.system_type||'';document.getElementById('knowledgeProvider').value=stored.provider||'';document.getElementById('knowledgeProduct').value=stored.product||'';document.getElementById('knowledgeFeatures').value=(stored.features||[]).join(', ');document.getElementById('knowledgeConfirmed').checked=!!stored.confirmed}}catch{}
+try{const stored=JSON.parse(localStorage.getItem('loftsims-zdr-knowledge-v06'));if(stored){knowledgeState=stored;document.getElementById('knowledgeProfile').value=stored.profile||'generic';document.getElementById('knowledgePreset').value=stored.selected_source_id||'';document.getElementById('knowledgeSystem').value=stored.system_type||'';document.getElementById('knowledgeProvider').value=stored.provider||'';document.getElementById('knowledgeProduct').value=stored.product||'';document.getElementById('knowledgeFeatures').value=(stored.features||[]).join(', ');document.getElementById('knowledgeConfirmed').checked=!!stored.confirmed}}catch{}
+const systemFlavorMap={'SAP / Joule':'sap_joule_zdr','Salesforce / Agentforce':'salesforce_agentforce_zdr','Microsoft 365 Copilot':'microsoft_copilot_zdr','ServiceNow AI':'servicenow_ai_zdr','OpenAI API':'openai_api_zdr','Anthropic Claude API':'anthropic_api_zdr','Google Cloud Gemini / Vertex AI':'google_gemini_vertex_zdr','Amazon Bedrock':'aws_bedrock_zdr','Oracle OCI Generative AI':'oracle_oci_genai_zdr','Cohere':'cohere_zdr','Mistral AI':'mistral_ai_zdr','Custom AI / RAG application':'custom_rag_zdr','Agentic AI system':'agentic_ai_zdr','AI governance or control platform':'ai_governance_zdr','Other AI Technology':'generic_ai_product_zdr'};
+document.getElementById('sapSystemType').addEventListener('change',e=>{const type=e.target.value;document.getElementById('sapFlavorName').value=systemFlavorMap[type]||'generic_ai_product_zdr';document.getElementById('knowledgeSystem').value=type;const lower=type.toLowerCase();document.getElementById('knowledgeProfile').value=lower.includes('api')||lower.includes('bedrock')||lower.includes('gemini')||lower.includes('oci')||lower==='cohere'||lower.includes('mistral')?'model_api':lower.includes('rag')?'custom_rag':lower.includes('agentic')?'agentic':lower.includes('governance')?'governance':type?'enterprise_app':'generic'});
 renderKnowledge();
 })();
