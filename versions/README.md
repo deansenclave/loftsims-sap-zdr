@@ -11,7 +11,8 @@ Each subfolder is a self-contained LoftSims milestone reconstructed from its rel
 | `v0.5.0` | complete | YAML-to-JSON handoff repair, full 15-control parsing, safer control semantics and Back/Clear/Continue navigation |
 | `v0.6.0` | baseline | 38-source knowledge corpus, sparse 15-anchor vectors, source-system confirmation, tailored questionnaires and knowledge artifacts |
 | `v0.6.1` | candidate snapshot | Editable source-derived identifiers, preliminary source failures, stale-state migration and manual source reapply |
-| `v0.6.2` | current candidate | System-type selection and corpus-source selection both populate essential editable identifiers |
+| `v0.6.2` | candidate snapshot | System-type selection and corpus-source selection both populate essential editable identifiers |
+| `v0.6.3` | current candidate | Selected-source feature activation limitations flow through YAML, assessment, evidence and recommendations |
 
 Open the `index.html` file in any version folder to run that version locally.
 
