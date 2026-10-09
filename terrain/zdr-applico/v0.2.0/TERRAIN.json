@@ -25,5 +25,6 @@
   "parentTerrAIn": "Root Terr-AI-n",
   "validation": "contract checks pending",
   "terrAInRole": "child",
-  "parentStatus": "Root Terr-AI-n is the default parent when no explicit parent Terr-AI-n is specified"
+  "parentStatus": "Root Terr-AI-n is the default parent when no explicit parent Terr-AI-n is specified",
+  "owner": "Sudheendra Pai"
 }
