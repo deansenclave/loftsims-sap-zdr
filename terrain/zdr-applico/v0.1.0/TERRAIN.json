@@ -1,0 +1,22 @@
+{
+  "schema": "Terr-AI-n.v0.1.0",
+  "id": "zdr-applico",
+  "name": "ZDR Applico",
+  "version": "0.1.0",
+  "architecture": "Terr-AI-n-based Architecture",
+  "governance": {
+    "principle": "#HumansOnTop",
+    "appliesTo": "all Terr-AI-n and sub-Terr-AI-n",
+    "humanFinalAuthority": true
+  },
+  "purpose": "Zero Data Retention assessment, recommendations and assurance",
+  "implementation": {
+    "type": "Loft SimS",
+    "repository": "deansenclave/loftsims-sap-zdr",
+    "latestDocumentedTarget": "versions/v0.6.3/",
+    "rootSnapshot": "v0.3.0"
+  },
+  "parentTerrAIn": null,
+  "parentStatus": "unresolved; do not infer Root Terr-AI-n as universal parent",
+  "status": "initial architectural registration; runtime validation pending"
+}
