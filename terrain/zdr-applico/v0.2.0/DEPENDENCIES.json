@@ -1,0 +1,40 @@
+{
+  "schema": "Terr-AI-n.Dependencies.v1",
+  "owner": "zdr-applico",
+  "dependencies": [
+    {
+      "id": "provider-zdr-evidence",
+      "origin": "external provider",
+      "artifactType": "documentation/configuration",
+      "integration": "evidence connector",
+      "status": "proposed; no live connection"
+    },
+    {
+      "id": "loftsims-mems",
+      "originTerrAIn": "Loft SimS MEMS",
+      "artifactType": "evidence metadata and lineage",
+      "integration": "versioned connector or API",
+      "status": "candidate; not connected"
+    },
+    {
+      "id": "loftsims-verifier",
+      "originTerrAIn": "Loft SimS Verifier",
+      "artifactType": "independent attestation",
+      "integration": "verification adapter",
+      "status": "candidate; not connected"
+    },
+    {
+      "id": "loftsims-logger",
+      "originTerrAIn": "Loft SimS Logger",
+      "artifactType": "event and activity evidence",
+      "integration": "event adapter",
+      "status": "candidate; not connected"
+    }
+  ],
+  "rules": {
+    "noImplicitTrust": true,
+    "noAutomaticCredentialSharing": true,
+    "sourceOwnershipPreserved": true,
+    "approval": "#HumansOnTop"
+  }
+}
