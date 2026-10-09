@@ -14,13 +14,14 @@
     "relationship": "existing Loft SimS; not modified"
   },
   "composition": {
-    "mode": [
+    "default": "standalone",
+    "roleSource": "verified connector and API integration evidence",
+    "allowed": [
       "standalone",
+      "producer",
       "consumer",
-      "provider",
       "composed"
-    ],
-    "explicitApprovalRequired": true
+    ]
   },
   "parentTerrAIn": "Root Terr-AI-n",
   "validation": "contract checks pending",
