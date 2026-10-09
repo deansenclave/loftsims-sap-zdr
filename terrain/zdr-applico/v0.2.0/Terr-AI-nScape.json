@@ -1,0 +1,39 @@
+{
+  "schema": "Terr-AI-nScape.v1",
+  "ownerTerrAIn": "zdr-applico",
+  "version": "0.2.0",
+  "governance": "#HumansOnTop",
+  "components": [
+    {
+      "id": "zdr-flavor-ingestion",
+      "kind": "sub-Terr-AI-n",
+      "implementation": "versions/v0.6.3/index.html",
+      "status": "documented existing capability"
+    },
+    {
+      "id": "zdr-assessment",
+      "kind": "sub-Terr-AI-n",
+      "implementation": "versions/v0.6.3/index.html",
+      "status": "documented existing capability"
+    },
+    {
+      "id": "zdr-recommendations",
+      "kind": "sub-Terr-AI-n",
+      "implementation": "versions/v0.6.3/index.html",
+      "status": "documented existing capability"
+    },
+    {
+      "id": "zdr-continuous-assurance",
+      "kind": "sub-Terr-AI-n",
+      "status": "design target; not verified implemented"
+    }
+  ],
+  "interfaces": "INTERFACES.json",
+  "dependencies": "DEPENDENCIES.json",
+  "composition": "COMPOSITION.json",
+  "artifactPolicy": {
+    "ownership": "retain source owner",
+    "crossTerrAInUse": "reference via explicit versioned contract",
+    "externalAccess": "deny until approved and configured"
+  }
+}
