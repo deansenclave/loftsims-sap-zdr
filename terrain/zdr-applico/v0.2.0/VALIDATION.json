@@ -1,0 +1,31 @@
+{
+  "schema": "Terr-AI-n.ValidationPlan.v1",
+  "version": "0.2.0",
+  "status": "not executed",
+  "assertions": [
+    {
+      "id": "C01",
+      "check": "Scape belongs to ZDR Applico"
+    },
+    {
+      "id": "C02",
+      "check": "All sub-Terr-AI-ns retain #HumansOnTop"
+    },
+    {
+      "id": "C03",
+      "check": "Every interface has direction, version and status"
+    },
+    {
+      "id": "C04",
+      "check": "External dependencies declare origin and integration"
+    },
+    {
+      "id": "C05",
+      "check": "Unimplemented integrations are not reported as active"
+    },
+    {
+      "id": "C06",
+      "check": "Existing Loft SimS release remains unchanged"
+    }
+  ]
+}
