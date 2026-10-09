@@ -1,6 +1,6 @@
 {
   "schema": "Terr-AI-n.Dependencies.v1",
-  "owner": "zdr-applico",
+  "owner": "Sudheendra Pai",
   "dependencies": [
     {
       "id": "provider-zdr-evidence",
