@@ -1,0 +1,47 @@
+{
+  "schema": "Terr-AI-n.Requirements.v1",
+  "requirements": [
+    {
+      "id": "ZDR-R01",
+      "description": "Assess each named data flow independently",
+      "source": "README.md",
+      "state": "documented"
+    },
+    {
+      "id": "ZDR-R02",
+      "description": "Distinguish no-model-training from zero-data-retention",
+      "source": "README.md",
+      "state": "documented"
+    },
+    {
+      "id": "ZDR-R03",
+      "description": "Require human review for probable and unknown flavors",
+      "source": "README.md",
+      "state": "documented"
+    },
+    {
+      "id": "ZDR-R04",
+      "description": "Keep observed, contracted, asserted and proposed claims separate",
+      "source": "README.md",
+      "state": "documented"
+    },
+    {
+      "id": "ZDR-R05",
+      "description": "Do not promote future-state claims to verified current state",
+      "source": "README.md",
+      "state": "documented"
+    },
+    {
+      "id": "ZDR-R06",
+      "description": "Apply #HumansOnTop to all sub-Terr-AI-ns",
+      "source": "user architectural instruction",
+      "state": "architectural requirement"
+    },
+    {
+      "id": "ZDR-R07",
+      "description": "Continuously monitor evidence and trigger reassessment",
+      "source": "design intent",
+      "state": "unverified implementation"
+    }
+  ]
+}
