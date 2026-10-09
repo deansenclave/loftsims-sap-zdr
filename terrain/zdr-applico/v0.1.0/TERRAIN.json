@@ -16,7 +16,8 @@
     "latestDocumentedTarget": "versions/v0.6.3/",
     "rootSnapshot": "v0.3.0"
   },
-  "parentTerrAIn": null,
-  "parentStatus": "unresolved; do not infer Root Terr-AI-n as universal parent",
-  "status": "initial architectural registration; runtime validation pending"
+  "parentTerrAIn": "Root Terr-AI-n",
+  "parentStatus": "Root Terr-AI-n is the default parent when no explicit parent Terr-AI-n is specified",
+  "status": "initial architectural registration; runtime validation pending",
+  "terrAInRole": "child"
 }
