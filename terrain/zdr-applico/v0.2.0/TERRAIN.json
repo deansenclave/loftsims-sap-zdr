@@ -1,0 +1,27 @@
+{
+  "schema": "Terr-AI-n.v0.2.0",
+  "id": "zdr-applico",
+  "version": "0.2.0",
+  "governance": {
+    "principle": "#HumansOnTop",
+    "scope": "self and every sub-Terr-AI-n",
+    "humanFinalAuthority": true
+  },
+  "terrAInScape": "Terr-AI-nScape.json",
+  "implementation": {
+    "repository": "deansenclave/loftsims-sap-zdr",
+    "path": "versions/v0.6.3/index.html",
+    "relationship": "existing Loft SimS; not modified"
+  },
+  "composition": {
+    "mode": [
+      "standalone",
+      "consumer",
+      "provider",
+      "composed"
+    ],
+    "explicitApprovalRequired": true
+  },
+  "parentTerrAIn": null,
+  "validation": "contract checks pending"
+}
