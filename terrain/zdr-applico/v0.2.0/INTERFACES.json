@@ -1,0 +1,51 @@
+{
+  "schema": "Terr-AI-n.Interfaces.v1",
+  "owner": "zdr-applico",
+  "interfaces": [
+    {
+      "id": "zdr.flavor.import.v1",
+      "direction": "inbound",
+      "transport": "local YAML",
+      "input": "flavor-specific YAML",
+      "output": "canonical AS-IS JSON",
+      "status": "documented"
+    },
+    {
+      "id": "zdr.assessment.export.v1",
+      "direction": "outbound",
+      "transport": "local JSON download",
+      "output": "assessment JSON",
+      "status": "documented"
+    },
+    {
+      "id": "zdr.recommendation.export.v1",
+      "direction": "outbound",
+      "transport": "local document export",
+      "output": "recommendations",
+      "status": "documented"
+    },
+    {
+      "id": "zdr.evidence.connector.v1",
+      "direction": "inbound",
+      "transport": "adapter contract",
+      "input": "provider evidence and provenance",
+      "status": "interface specification only"
+    },
+    {
+      "id": "zdr.assurance.events.v1",
+      "direction": "outbound",
+      "transport": "event contract",
+      "output": "evidence change/reassessment events",
+      "status": "interface specification only"
+    }
+  ],
+  "contractRequirements": [
+    "explicit input/output schema",
+    "version and compatibility",
+    "identity and authorization",
+    "data minimization and retention disclosure",
+    "evidence provenance",
+    "error handling",
+    "human approval gates"
+  ]
+}
