@@ -1,6 +1,6 @@
 {
   "schema": "Terr-AI-n.Composition.v1",
-  "owner": "zdr-applico",
+  "owner": "Sudheendra Pai",
   "modes": [
     {
       "mode": "standalone",
@@ -41,5 +41,6 @@
     "Each sub-Terr-AI-n retains #HumansOnTop",
     "External artifacts retain provenance and ownership",
     "Claims cannot silently become verified evidence"
-  ]
+  ],
+  "defaultComposition": "standalone"
 }
