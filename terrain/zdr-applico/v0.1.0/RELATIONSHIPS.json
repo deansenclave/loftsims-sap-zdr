@@ -1,0 +1,32 @@
+{
+  "schema": "Terr-AI-n.Relationships.v1",
+  "subject": "zdr-applico",
+  "relationships": [
+    {
+      "target": "Terr-AI-n-based Architecture",
+      "type": "participates-in",
+      "status": "defined"
+    },
+    {
+      "target": "Loft SimS",
+      "type": "implemented-by",
+      "repository": "deansenclave/loftsims-sap-zdr",
+      "status": "repository verified"
+    },
+    {
+      "target": "Terr-AI-nScape",
+      "type": "documentation-interface",
+      "status": "proposed registration"
+    },
+    {
+      "target": "Terr-AI-nium",
+      "type": "registry-interface",
+      "status": "proposed registration"
+    },
+    {
+      "target": "Root Terr-AI-n",
+      "type": "relationship-undetermined",
+      "status": "requires explicit architectural mapping"
+    }
+  ]
+}
