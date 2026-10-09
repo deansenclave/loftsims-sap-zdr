@@ -1,5 +1,7 @@
 # ZDR Applico Terr-AI-n — Architecture v0.1.0
 
+**Owner:** Sudheendra Pai
+
 ## Scope
 Represent the independently developed ZDR Applico framework within the Terr-AI-n-based architecture, without replacing or modifying its Loft SimS implementation.
 
