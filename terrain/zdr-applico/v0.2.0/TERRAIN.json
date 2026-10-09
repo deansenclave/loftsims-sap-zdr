@@ -22,6 +22,8 @@
     ],
     "explicitApprovalRequired": true
   },
-  "parentTerrAIn": null,
-  "validation": "contract checks pending"
+  "parentTerrAIn": "Root Terr-AI-n",
+  "validation": "contract checks pending",
+  "terrAInRole": "child",
+  "parentStatus": "Root Terr-AI-n is the default parent when no explicit parent Terr-AI-n is specified"
 }
