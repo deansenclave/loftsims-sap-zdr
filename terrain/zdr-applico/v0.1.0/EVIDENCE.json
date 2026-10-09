@@ -1,0 +1,22 @@
+{
+  "schema": "Terr-AI-n.Evidence.v1",
+  "auditDate": "2026-10-09",
+  "sources": [
+    {
+      "path": "README.md",
+      "kind": "repository documentation",
+      "reviewed": true
+    },
+    {
+      "path": "index.html",
+      "kind": "root application snapshot",
+      "reviewed": "partial"
+    },
+    {
+      "path": "versions/v0.6.3/",
+      "kind": "documented cumulative testing target",
+      "reviewed": false
+    }
+  ],
+  "validation": "No runtime tests executed; no release behavior certified"
+}
