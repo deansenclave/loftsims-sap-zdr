@@ -1,6 +1,6 @@
 {
   "schema": "Terr-AI-n.Interfaces.v1",
-  "owner": "zdr-applico",
+  "owner": "Sudheendra Pai",
   "interfaces": [
     {
       "id": "zdr.flavor.import.v1",
