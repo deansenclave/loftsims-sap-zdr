@@ -28,5 +28,6 @@
       "type": "relationship-undetermined",
       "status": "requires explicit architectural mapping"
     }
-  ]
+  ],
+  "owner": "Sudheendra Pai"
 }
