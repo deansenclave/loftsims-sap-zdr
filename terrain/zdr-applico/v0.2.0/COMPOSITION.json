@@ -1,0 +1,45 @@
+{
+  "schema": "Terr-AI-n.Composition.v1",
+  "owner": "zdr-applico",
+  "modes": [
+    {
+      "mode": "standalone",
+      "requires": [],
+      "status": "existing local Loft SimS documented"
+    },
+    {
+      "mode": "consumer",
+      "requires": [
+        "approved external artifact",
+        "versioned contract",
+        "authorization"
+      ],
+      "status": "specified"
+    },
+    {
+      "mode": "provider",
+      "requires": [
+        "published interface",
+        "data handling contract",
+        "versioned output"
+      ],
+      "status": "specified"
+    },
+    {
+      "mode": "composed",
+      "requires": [
+        "dependency graph",
+        "compatible interfaces",
+        "human approval",
+        "validation"
+      ],
+      "status": "specified"
+    }
+  ],
+  "invariants": [
+    "Each Terr-AI-n owns its Terr-AI-nScape",
+    "Each sub-Terr-AI-n retains #HumansOnTop",
+    "External artifacts retain provenance and ownership",
+    "Claims cannot silently become verified evidence"
+  ]
+}
