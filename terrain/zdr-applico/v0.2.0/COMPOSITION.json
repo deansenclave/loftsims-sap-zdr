@@ -4,36 +4,23 @@
   "modes": [
     {
       "mode": "standalone",
-      "requires": [],
-      "status": "existing local Loft SimS documented"
+      "qualification": "Default; no active cross-Terr-AI-n connector integration",
+      "status": "default"
+    },
+    {
+      "mode": "producer",
+      "qualification": "Provides an API or connector successfully tested with a test Terr-AI-n",
+      "status": "requires integration test evidence"
     },
     {
       "mode": "consumer",
-      "requires": [
-        "approved external artifact",
-        "versioned contract",
-        "authorization"
-      ],
-      "status": "specified"
-    },
-    {
-      "mode": "provider",
-      "requires": [
-        "published interface",
-        "data handling contract",
-        "versioned output"
-      ],
-      "status": "specified"
+      "qualification": "Uses another Terr-AI-n as source through its connector",
+      "status": "requires verified active consumption"
     },
     {
       "mode": "composed",
-      "requires": [
-        "dependency graph",
-        "compatible interfaces",
-        "human approval",
-        "validation"
-      ],
-      "status": "specified"
+      "qualification": "Both consumer and producer responsibilities verified",
+      "status": "requires evidence for both roles"
     }
   ],
   "invariants": [
@@ -42,5 +29,12 @@
     "External artifacts retain provenance and ownership",
     "Claims cannot silently become verified evidence"
   ],
-  "defaultComposition": "standalone"
+  "defaultComposition": "standalone",
+  "transitionRules": {
+    "standaloneToProducer": "successful test-Terr-AI-n connection to owned API or connector",
+    "standaloneToConsumer": "verified consumption from source Terr-AI-n connector",
+    "toComposed": "both producer and consumer qualifications satisfied",
+    "untestedInterface": "does not change composition",
+    "evidenceRequired": true
+  }
 }
