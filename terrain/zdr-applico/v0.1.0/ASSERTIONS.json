@@ -1,0 +1,36 @@
+{
+  "schema": "Terr-AI-n.Assertions.v1",
+  "executionStatus": "not-run",
+  "assertions": [
+    {
+      "id": "A01",
+      "check": "Published version folders remain unchanged",
+      "result": "pending"
+    },
+    {
+      "id": "A02",
+      "check": "Unknown flavor cannot be marked verified ZDR without human review",
+      "result": "pending"
+    },
+    {
+      "id": "A03",
+      "check": "No training claim alone cannot pass ZDR",
+      "result": "pending"
+    },
+    {
+      "id": "A04",
+      "check": "Future proposals cannot change AS-IS determination",
+      "result": "pending"
+    },
+    {
+      "id": "A05",
+      "check": "Export retains truth classes and evidence attribution",
+      "result": "pending"
+    },
+    {
+      "id": "A06",
+      "check": "Every sub-Terr-AI-n inherits #HumansOnTop governance",
+      "result": "pending"
+    }
+  ]
+}
