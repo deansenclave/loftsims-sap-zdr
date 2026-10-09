@@ -5,7 +5,7 @@
   "governance": {
     "principle": "#HumansOnTop",
     "scope": "self and every sub-Terr-AI-n",
-    "humanFinalAuthority": true
+    "humanFinalAuthority": "implicit and explicit"
   },
   "terrAInScape": "Terr-AI-nScape.json",
   "implementation": {
