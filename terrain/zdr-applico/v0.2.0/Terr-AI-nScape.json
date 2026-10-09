@@ -35,5 +35,6 @@
     "ownership": "retain source owner",
     "crossTerrAInUse": "reference via explicit versioned contract",
     "externalAccess": "deny until approved and configured"
-  }
+  },
+  "owner": "Sudheendra Pai"
 }
