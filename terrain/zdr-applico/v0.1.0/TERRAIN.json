@@ -7,7 +7,7 @@
   "governance": {
     "principle": "#HumansOnTop",
     "appliesTo": "all Terr-AI-n and sub-Terr-AI-n",
-    "humanFinalAuthority": true
+    "humanFinalAuthority": "implicit and explicit"
   },
   "purpose": "Zero Data Retention assessment, recommendations and assurance",
   "implementation": {
